@@ -34,11 +34,9 @@ public class LogInterceptor implements Interceptor {
             if (oldBody instanceof FormBody) {
                 //FormBody方式提交参数
                 FormBody.Builder formBodyBuilder = new FormBody.Builder();
-                formBodyBuilder.add("token", "07b22ee187f9410abde22541689309f81562660889259");
                 formBodyBuilder.add("mac", "AC83F3B47D82");
                 formBodyBuilder.add("version", "1.1.2");
                 newRequestBuild = oldRequest.newBuilder();
-
                 RequestBody formBody = formBodyBuilder.build();
                 postBodyString = bodyToString(oldRequest.body());
                 postBodyString += ((postBodyString.length() > 0) ? "&" : "") + bodyToString(formBody);
@@ -48,7 +46,6 @@ public class LogInterceptor implements Interceptor {
                 List<MultipartBody.Part> oldPartList = oldBodyMultipart.parts();
                 MultipartBody.Builder builder = new MultipartBody.Builder();
                 builder.setType(MultipartBody.FORM);
-                RequestBody requestBody3 = RequestBody.create(MediaType.parse("text/plain"), "07b22ee187f9410abde22541689309f81562660889259");
                 RequestBody requestBody1 = RequestBody.create(MediaType.parse("text/plain"), "AC83F3B47D82");
                 RequestBody requestBody2 = RequestBody.create(MediaType.parse("text/plain"), "1.1.2");
                 for (MultipartBody.Part part : oldPartList) {
@@ -69,7 +66,6 @@ public class LogInterceptor implements Interceptor {
                 //                newRequestBuild = oldRequest.newBuilder();
 
                 FormBody.Builder formBodyBuilder = new FormBody.Builder();
-                formBodyBuilder.add("token", "07b22ee187f9410abde22541689309f81562660889259");
                 formBodyBuilder.add("mac", "AC83F3B47D82");
                 formBodyBuilder.add("version", "1.1.2");
                 newRequestBuild = oldRequest.newBuilder();
@@ -85,7 +81,6 @@ public class LogInterceptor implements Interceptor {
                     .newBuilder()
                     .scheme(oldRequest.url().scheme())
                     .host(oldRequest.url().host())
-                    .addQueryParameter("token", "07b22ee187f9410abde22541689309f81562660889259")
                     .addQueryParameter("mac", "AC83F3B47D82")
                     .addQueryParameter("version", "1.1.2");
 
