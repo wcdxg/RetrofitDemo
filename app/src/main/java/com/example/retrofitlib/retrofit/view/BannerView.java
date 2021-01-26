@@ -9,9 +9,6 @@ import com.imageim.yimirror.bean.ShopConfigInfoBean;
  */
 public interface BannerView extends BaseView {
 
-    void setBanner(AdInfoBean adInfoBean);
-
     void setToken(String token);
 
-    void setShopConfig(ShopConfigInfoBean shopConfig);
 }
